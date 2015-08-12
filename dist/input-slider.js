@@ -128,6 +128,9 @@ module.exports = React.createClass({
   handleDragEnd: function handleDragEnd(e) {
     document.removeEventListener('mousemove', this.handleDrag);
     document.removeEventListener('mouseup', this.handleDragEnd);
+
+    var rect = this.getDOMNode().getBoundingClientRect();
+
     if (this.props.onDragEnd) {
       var coords = this.getCoords({
         left: e.clientX - rect.left,
